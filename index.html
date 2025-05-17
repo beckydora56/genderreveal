@@ -68,6 +68,16 @@
       transform: translateX(-50%);
     }
 
+    .tap-hint {
+      font-size: 1.2rem;
+      color: #666;
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+    }
+
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-20px); }
@@ -137,7 +147,7 @@
   <div class="container">
     <div class="balloon" onclick="reveal()">
       Boy？<br>or<br>Girl？
-</div>
+    </div>
     <div class="message" id="message"></div>
     <div class="confetti" id="confetti"></div>
     <audio id="celebration-sound" preload="auto">
@@ -182,10 +192,12 @@
   balloon.addEventListener('animationend', () => {
     balloon.style.display = 'none';
 
+    document.getElementById('tapHint').style.display = 'none'; // ← 追加行
+
     document.body.style.background = "linear-gradient(to bottom, #cceeff, #ffffff)";
 
     const message = document.getElementById('message');
-    message.textContent = "It's a Boy🎉"; // ← ここで動的に表示
+    message.textContent = "It's a Boy🎉";
     message.classList.add('show');
 
     const sound = document.getElementById('celebration-sound');
@@ -197,6 +209,8 @@
     startConfettiLoop();
   }, { once: true });
 }
+
   </script>
+  <p class="tap-hint" id="tapHint">風船をタップしてみてね🎈</p>
 </body>
 </html>

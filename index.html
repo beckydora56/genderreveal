@@ -138,7 +138,7 @@
     <div class="balloon" onclick="reveal()">
       Boy？<br>or<br>Girl？
 </div>
-    <div class="message" id="message">It's a Boy🎉</div>
+    <div class="message" id="message">I</div>
     <div class="confetti" id="confetti"></div>
     <audio id="celebration-sound" preload="auto">
       <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_659faac549.mp3?filename=success-1-6297.mp3" type="audio/mp3">
@@ -174,26 +174,29 @@
       }, 300);
     }
 
-    function reveal() {
-      const balloon = document.querySelector('.balloon');
+   function reveal() {
+  const balloon = document.querySelector('.balloon');
 
-      balloon.style.animation = 'balloon-fly-up 2s forwards ease-in';
+  balloon.style.animation = 'balloon-fly-up 2s forwards ease-in';
 
-      balloon.addEventListener('animationend', () => {
-        balloon.style.display = 'none';
+  balloon.addEventListener('animationend', () => {
+    balloon.style.display = 'none';
 
-        document.body.style.background = "linear-gradient(to bottom, #cceeff, #ffffff)";
-        document.getElementById('message').classList.add('show');
+    document.body.style.background = "linear-gradient(to bottom, #cceeff, #ffffff)";
 
-        const sound = document.getElementById('celebration-sound');
-        sound.currentTime = 0;
-        sound.play().catch(e => {
-          console.log("音声再生に失敗しました:", e);
-        });
+    const message = document.getElementById('message');
+    message.textContent = "It's a Boy🎉"; // ← ここで動的に表示
+    message.classList.add('show');
 
-        startConfettiLoop();
-      }, { once: true });
-    }
+    const sound = document.getElementById('celebration-sound');
+    sound.currentTime = 0;
+    sound.play().catch(e => {
+      console.log("音声再生に失敗しました:", e);
+    });
+
+    startConfettiLoop();
+  }, { once: true });
+}
   </script>
 </body>
 </html>

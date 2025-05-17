@@ -54,6 +54,7 @@
       user-select: none;
       text-shadow: 0 0 3px #fff;
       font-weight: 900;
+      text-align: center;
     }
 
     .balloon::after {
@@ -132,10 +133,12 @@
   </style>
 </head>
 <body>
-  <h1>性別が決まりました👶</h1>
+  <h1>性別がわかりました👶</h1>
   <div class="container">
-    <div class="balloon" onclick="reveal()">結果を見る</div>
-    <div class="message" id="message">男の子です！🎉</div>
+    <div class="balloon" onclick="reveal()">
+      Boy？<br>or<br>Girl？
+</div>
+    <div class="message" id="message">It's a Boy🎉</div>
     <div class="confetti" id="confetti"></div>
     <audio id="celebration-sound" preload="auto">
       <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_659faac549.mp3?filename=success-1-6297.mp3" type="audio/mp3">
